@@ -23,7 +23,7 @@ jobs:
     - name: Build the Docker image
       run: docker build . --file Dockerfile --tag my-image-name:${{ github.sha }}
   build-release:
-    if: startsWith(github.ref_name, 'RELEASE-**') == '1'
+    if: ${{ startsWith(github.ref_name, 'RELEASE-**' }}
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
