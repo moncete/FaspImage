@@ -10,7 +10,8 @@ on:
   create:
     branches:
       - 'RELEASE-**'
-
+env:
+  branch: startsWith(github.ref_name, 'RELEASE-**')
 jobs:
 
   build-master:
@@ -21,7 +22,7 @@ jobs:
     - name: Build the Docker image
       run: docker build . --file Dockerfile --tag my-image-name:${{ github.sha }}
   build-release:
-    if: github.ref_name startsWith('RELEASE-**')
+    if: ${{ env.branch }} == 1
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
