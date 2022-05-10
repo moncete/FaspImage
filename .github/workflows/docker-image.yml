@@ -7,6 +7,8 @@ on:
     branches:
       - main
       - 'RELEASE-**'
+  create:
+    - 'RELEASE-**'
 
 jobs:
 
