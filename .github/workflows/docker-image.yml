@@ -32,6 +32,6 @@ jobs:
     - name: Update REPO
       uses: actions/checkout@v3
       with:
-        repository: moncete/faspi-canary.git
+        repository: moncete/faspi-canary
     - name: TEST
       run: cat rollout-canary.yaml
