@@ -30,6 +30,7 @@ jobs:
     - name: Build the Docker image
       run: docker build . --file Dockerfile --tag my-image-name:${{ github.ref_name }}
   Update-Infra:
+    needs: build-release
     runs-on: ubuntu-latest 
     steps:
     - name: Update REPO
