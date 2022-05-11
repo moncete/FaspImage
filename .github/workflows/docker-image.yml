@@ -45,5 +45,5 @@ jobs:
         repository: moncete/faspi-canary
     - name: TEST
       run: |
-        echo "steps.build-release.TAG.TAG" 
+        echo "${{ steps.build-release.TAG.TAG }}" 
         cat rollout-canary.yaml
