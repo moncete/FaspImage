@@ -48,4 +48,5 @@ jobs:
     - name: TEST
       run: |
         echo ${{ needs.build-release.outputs.tag }}
+        sed -i 's/faspi:.*/faspi:${{ needs.build-release.outputs.tag }}'
         cat rollout-canary.yaml
