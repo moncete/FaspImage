@@ -28,6 +28,8 @@ jobs:
   build-release:
     if: ${{ startsWith(github.ref_name, 'RELEASE-') }}
     runs-on: ubuntu-latest
+    outputs:
+      tag: ${{ steps.TAG.outputs.TAG}}
     steps:
     - uses: actions/checkout@v3
     - name: Build the Docker image
@@ -45,5 +47,5 @@ jobs:
         repository: moncete/faspi-canary
     - name: TEST
       run: |
-        echo "${{ steps.build-release.TAG.TAG }}" 
+        echo "${{ steps.build-release.outputs.tag }}" 
         cat rollout-canary.yaml
