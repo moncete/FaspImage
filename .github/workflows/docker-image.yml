@@ -46,7 +46,7 @@ jobs:
       with:
         repository: moncete/faspi-canary
         ref: dev
-        token: ${{ github.token }}
+        token: ${{ secrets.canary }}
     - name: TEST
       run: |
         echo ${{ needs.build-release.outputs.tag }}
